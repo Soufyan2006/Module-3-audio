@@ -1,0 +1,29 @@
+.kanoe{
+    display: flex;
+    flex-direction:column-reverse;
+    width: 250px;
+}
+
+.ibawen{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 250px;
+}
+
+.skiezo{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 250px;
+}
+
+.soolking{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 250px;
+}
+
+.yesr{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 250px;
+}

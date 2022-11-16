@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <link href="/assets/css/flex.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="flex-container">
+        <div><button onclick="previous();">Prev</button></div>
+        <div><img data-song-id="kanoe" src="/assets/img/kanoe.jpg" width="250" height="250" id="plaatje1"></div>
+        <div><img data-song-id="IBAWEN" src="/assets/img/IBAWEN IBAWEN.jpg" width="250" height="250" id="plaatje2"></div>
+        <div style="background-color:rgb(0, 234, 255);"><img data-song-id="skiezo" src="/assets/img/skiezp.jpg" width="250" height="250" id="plaatje3"></div>  
+        <div><img data-song-id="soolking" src="/assets/img/soolking.jpg" width="250" height="250" id="plaatje4"></div>  
+        <div><img data-song-id="yesr" src="/assets/img/yes r.jpg" width="250" height="250" id="plaatje5"></div>  
+        <div><button onclick="next();">Next</button></div>
+    </div>
+
+    <audio id="kanoe">
+        <source src="/assets/audio/Kano Voldemort PlanteRap.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="IBAWEN">
+        <source src="/assets/audio/new said fihala 2019 rif alhoceima.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="skiezo">
+        
+        <source src="/assets/audio/SKIEZO FT CHILLOUH  MARUECOS.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="soolking">
+        
+        <source src="/assets/audio/Suavemente.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="yesr">
+    
+        <source src="/assets/audio/YesR  Uit elkaar Official Video HD.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function previous() {
+            console.log('previous');
+
+            // laat de previous button werken
+        }
+        
+        function next() {
+            console.log('next');
+
+            var src1 = document.getElementById('plaatje1').src;
+            var src2 = document.getElementById('plaatje2').src;
+            var src3 = document.getElementById('plaatje3').src;
+            var src4 = document.getElementById('plaatje4').src;
+            var src5 = document.getElementById('plaatje5').src;
+
+            document.getElementById('plaatje1').src = src5; 
+            document.getElementById('plaatje2').src = src1;
+            document.getElementById('plaatje3').src = src2;
+            document.getElementById('plaatje4').src = src3;
+            document.getElementById('plaatje5').src = src4;
+
+            var dsi1 = document.getElementById('plaatje1').getAttribute('data-song-id');
+            var dsi2 = document.getElementById('plaatje2').getAttribute('data-song-id');
+            var dsi3 = document.getElementById('plaatje3').getAttribute('data-song-id');
+            var dsi4 = document.getElementById('plaatje4').getAttribute('data-song-id');
+            var dsi5 = document.getElementById('plaatje5').getAttribute('data-song-id');
+
+            document.getElementById('plaatje1').setAttribute('data-song-id', dsi5); 
+            document.getElementById('plaatje2').setAttribute('data-song-id', dsi1); 
+            document.getElementById('plaatje3').setAttribute('data-song-id', dsi2); 
+            document.getElementById('plaatje4').setAttribute('data-song-id', dsi3); 
+            document.getElementById('plaatje5').setAttribute('data-song-id', dsi4); 
+
+            var nummer3 = document.getElementById('plaatje3');            
+            var songId  = nummer3.getAttribute('data-song-id');
+            console.log(nummer3);
+            console.log(songId);
+            playSong(songId);
+        }
+
+        function playSong(songId) {
+            console.log('playSong '+songId);
+            document.querySelectorAll('audio').forEach(el => el.pause());
+            document.getElementById(songId).play();
+        }
+    </script>     
+</body>
+</html>
